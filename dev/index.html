@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Multiversal Feedback</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css"
+    integrity="sha512-byErQdWdTqREz6DLAA9pCnLbdoGGhXfU6gm1c8bkf7F51JVmUBlayGe2A31VpXWQP+eiJ3ilTAZHCR3vmMyybA=="
+    crossorigin="anonymous" />
+  <link rel="icon" href="favicon.ico">
+  <script src="js/main.js"></script>
+  <script type="module" src="../multiversal-feedback.js"></script>
+  <script>
+    function show() {
+      var element = document.getElementById('feedback');
+
+      element.showDialog();
+
+      // Custom Submit Function
+      element.submitFunction = (e) => {
+        e.preventDefault();
+        
+        var formData = new FormData(element.getForm());
+         for (const formElement of formData) {
+          console.log(formElement);
+        }
+        //collect other data, user info, browser info, etc.
+        //send to server
+
+        //close dialog
+        element.closeDialog();
+      };
+    }
+
+
+  </script>
+</head>
+
+<body>
+  <div class="container is-fluid">
+
+    <section class="section">
+      <div class="container has-text-centered py-4">
+        <h2 class="title mb-6">Metaversal Feedback Demo</h2>
+        <div class="columns is-multiline is-centered">
+          <div class="column is-8 is-4-widescreen mb-5">
+            <div class="block"><img src="https://shuffle.dev/placeholder/pictures/bg_16-9.svg?primary=00d1b2" alt="">
+            </div>
+            <h4 class="title"><small class="number">1</small> Install</h4>
+            <p>Install with npm, soon.</p>
+          </div>
+          <div class="column is-8 is-4-widescreen mb-5">
+            <div class="block"><img src="https://shuffle.dev/placeholder/pictures/bg_16-9.svg?primary=00d1b2" alt="">
+            </div>
+            <h4 class="title"><small class="number">2</small> Add </h4>
+            <p>Add tag and customize attributes.</p> 
+            <p><strong>&lt;multiversal-feedback id="feedback" title="Acme Feedback" /&gt;</strong></p>
+          </div>
+          <div class="column is-8 is-4-widescreen mb-5">
+            <div class="block"><img src="https://shuffle.dev/placeholder/pictures/bg_16-9.svg?primary=00d1b2" alt="">
+            </div>
+            <h4 class="title"><small class="number">3</small> Provide</h4>
+            <p>Add your own function to handle form data and submit feedback to your service.</p>
+          </div>
+        </div>
+        <div class="buttons is-centered"><a class="button" href="https://github.com/davezen1/multiversal-feedback">GitHub</a>
+          <button class="button is-primary" id="metaversal-feedback" onclick="show();">Demo Submit Feedback</button>
+          <multiversal-feedback id="feedback" title="Acme Feedback" /></div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
